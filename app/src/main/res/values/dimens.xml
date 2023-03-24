@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Common sizes-->
+    <dimen name="vertical_spacing">8dp</dimen>
+    <dimen name="horizontal_spacing">16dp</dimen>
+
+    <!--CardView Dimens-->
+    <dimen name="feed_image_size">120dp</dimen>
+    <dimen name="card_view_size">160dp</dimen>
+    <dimen name="card_title_size">24sp</dimen>
+    <dimen name="elevation_card">4dp</dimen>
+    <dimen name="radius_card">4dp</dimen>
+
+    <!--Detail Dimens-->
+    <dimen name="detail_title_size">32sp</dimen>
+</resources>
