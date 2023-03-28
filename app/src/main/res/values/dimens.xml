@@ -9,8 +9,9 @@
     <dimen name="card_view_size">160dp</dimen>
     <dimen name="card_title_size">24sp</dimen>
     <dimen name="elevation_card">4dp</dimen>
-    <dimen name="radius_card">4dp</dimen>
+    <dimen name="radius_card">8dp</dimen>
 
     <!--Detail Dimens-->
     <dimen name="detail_title_size">32sp</dimen>
+    <dimen name="detail_image_size">160dp</dimen>
 </resources>

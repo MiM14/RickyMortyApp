@@ -13,11 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="@dimen/feed_image_size"
             android:layout_height="@dimen/feed_image_size"
             android:id="@+id/main_image"
             tools:src="@tools:sample/avatars"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            style="@style/ImageRoundCorner"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="@dimen/horizontal_spacing"
