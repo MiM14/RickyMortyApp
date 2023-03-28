@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="@dimen/horizontal_spacing"
+        android:layout_marginVertical="@dimen/vertical_spacing"
+        tools:text="Rick Sanchez"
+        android:textAlignment="center"
+        android:textSize="@dimen/detail_title_size"
+        android:textStyle="bold"
+        />
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:id="@+id/separator"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        android:layout_marginVertical="@dimen/vertical_spacing"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/BodyText"
+        android:id="@+id/label_species"
+        android:layout_marginHorizontal="@dimen/horizontal_spacing"
+        app:layout_constraintStart_toEndOf="@id/image"
+        app:layout_constraintTop_toTopOf="@id/image"
+        android:layout_marginVertical="@dimen/vertical_spacing"
+        android:text="@string/species"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/BodyText"
+        android:id="@+id/species"
+        app:layout_constraintStart_toEndOf="@id/label_species"
+        app:layout_constraintTop_toTopOf="@id/label_species"
+        tools:text="Human"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/BodyText"
+        android:id="@+id/label_status"
+        android:layout_marginHorizontal="@dimen/horizontal_spacing"
+        app:layout_constraintStart_toEndOf="@id/image"
+        app:layout_constraintTop_toBottomOf="@id/label_species"
+        android:layout_marginVertical="@dimen/vertical_spacing"
+        android:text="@string/status"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/status"
+        style="@style/BodyText"
+        app:layout_constraintStart_toEndOf="@id/label_status"
+        app:layout_constraintTop_toTopOf="@id/label_status"
+        tools:text="Alive"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/label_gender"
+        style="@style/BodyText"
+        android:layout_marginHorizontal="@dimen/horizontal_spacing"
+        app:layout_constraintStart_toEndOf="@id/image"
+        app:layout_constraintTop_toBottomOf="@id/label_status"
+        android:layout_marginVertical="@dimen/vertical_spacing"
+        android:text="@string/gender"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gender"
+        style="@style/BodyText"
+        app:layout_constraintStart_toEndOf="@id/label_gender"
+        app:layout_constraintTop_toTopOf="@id/label_gender"
+        tools:text="Male"
+        />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="@dimen/detail_image_size"
+        android:layout_height="@dimen/detail_image_size"
+        android:id="@+id/image"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        style="@style/ImageRoundCorner"
+        app:layout_constraintStart_toStartOf="@id/separator"
+        app:layout_constraintTop_toBottomOf="@id/separator"
+        android:layout_marginVertical="@dimen/vertical_spacing"
+        tools:src="@tools:sample/avatars"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
