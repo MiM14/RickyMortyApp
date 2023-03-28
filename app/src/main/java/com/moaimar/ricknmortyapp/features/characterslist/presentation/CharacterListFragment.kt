@@ -53,6 +53,9 @@ class CharacterListFragment() : Fragment() {
                     requireContext(), LinearLayoutManager.VERTICAL, false
                 )
                 skeleton = applySkeleton(R.layout.item_character_list, 4)
+                swipeRefreshLayout.setOnRefreshListener {
+                    viewModel.refreshFeed()
+                }
 
             }
             characterFeedAdapter.setOnClickedItem { keyId ->
@@ -75,10 +78,12 @@ class CharacterListFragment() : Fragment() {
                     if (uiState.error != null) {
                         //TODO
                     } else {
+                        binding?.swipeRefreshLayout?.isRefreshing = false
                         characterFeedAdapter.submitList(uiState.characters)
                     }
                 }
             }
+
         viewModel.uiState.observe(viewLifecycleOwner, characterListObserver)
     }
 

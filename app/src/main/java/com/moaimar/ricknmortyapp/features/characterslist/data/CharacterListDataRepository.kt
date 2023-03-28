@@ -31,4 +31,9 @@ class CharacterListDataRepository @Inject constructor(
     override suspend fun getDetail(keyId: Int): Either<ErrorApp, CharacterInfo> =
         localDataRepository.getCharactersInfo(keyId)?.right()
             ?: remoteDataRepository.getCharactersInfo(keyId).map { it }
+
+    override suspend fun refreshFeed(): Either<ErrorApp, List<CharacterInfo>> {
+        localDataRepository.delete()
+        return getFeed()
+    }
 }
