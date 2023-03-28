@@ -9,6 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.faltenreich.skeletonlayout.Skeleton
+import com.faltenreich.skeletonlayout.applySkeleton
+import com.moaimar.ricknmortyapp.R
 import com.moaimar.ricknmortyapp.databinding.FragmentCharacterListBinding
 import com.moaimar.ricknmortyapp.features.characterslist.presentation.adapter.CharacterFeedAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,6 +25,8 @@ class CharacterListFragment() : Fragment() {
 
     @Inject
     lateinit var characterFeedAdapter: CharacterFeedAdapter
+
+    private var skeleton: Skeleton? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +52,8 @@ class CharacterListFragment() : Fragment() {
                 layoutManager = LinearLayoutManager(
                     requireContext(), LinearLayoutManager.VERTICAL, false
                 )
+                skeleton = applySkeleton(R.layout.item_character_list, 4)
+
             }
             characterFeedAdapter.setOnClickedItem { keyId ->
                 findNavController().navigate(
@@ -62,8 +69,9 @@ class CharacterListFragment() : Fragment() {
         val characterListObserver =
             Observer<CharacterListViewModel.UiState> { uiState ->
                 if (uiState.isLoading) {
-                    //TODO
+                    skeleton?.showSkeleton()
                 } else {
+                    skeleton?.showOriginal()
                     if (uiState.error != null) {
                         //TODO
                     } else {
