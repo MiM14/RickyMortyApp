@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.faltenreich.skeletonlayout.Skeleton
 import com.moaimar.ricknmortyapp.app.extensions.loadUrl
 import com.moaimar.ricknmortyapp.databinding.FragmentCharacterDetailBinding
 import com.moaimar.ricknmortyapp.features.characterslist.domain.CharacterInfo
@@ -19,6 +20,7 @@ class CharacterDetailFragment : Fragment(){
     private var binding: FragmentCharacterDetailBinding? = null
     private val viewModel by viewModels<CharacterDetailViewModel>()
     private val args : CharacterDetailFragmentArgs by navArgs()
+    private var skeleton: Skeleton? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +28,7 @@ class CharacterDetailFragment : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCharacterDetailBinding.inflate(inflater)
+        skeleton = binding?.skeletonLayout
         return binding?.root
     }
 
@@ -39,10 +42,10 @@ class CharacterDetailFragment : Fragment(){
         val characterDetailObserver=
             Observer<CharacterDetailViewModel.UiState>(){uiState->
                 if (uiState.isLoading){
-                    //TODO
+                    skeleton?.showSkeleton()
                 }else{
+                    skeleton?.showOriginal()
                     if (uiState.error != null){
-                        //TODO
                     }else{
                         bind(uiState.character)
                     }
