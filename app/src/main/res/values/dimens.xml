@@ -14,4 +14,5 @@
     <!--Detail Dimens-->
     <dimen name="detail_title_size">32sp</dimen>
     <dimen name="detail_image_size">160dp</dimen>
+    <dimen name="detail_card_view_size">260dp</dimen>
 </resources>
