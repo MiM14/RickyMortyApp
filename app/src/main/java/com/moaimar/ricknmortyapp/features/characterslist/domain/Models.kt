@@ -8,3 +8,9 @@ data class CharacterInfo(
     val gender: String,
     val urlImage: String
 )
+
+data class CharactersFeed(
+    val id: Int,
+    val name: String,
+    val urlImage: String
+)

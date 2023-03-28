@@ -7,19 +7,23 @@ import androidx.lifecycle.viewModelScope
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.features.characterslist.domain.CharactersFeed
 import com.moaimar.ricknmortyapp.features.characterslist.domain.GetFeedUseCase
+import com.moaimar.ricknmortyapp.features.characterslist.domain.RefreshUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CharacterListViewModel @Inject constructor(private val getFeedUseCase: GetFeedUseCase) :
-    ViewModel() {
+class CharacterListViewModel @Inject constructor(
+    private val getFeedUseCase: GetFeedUseCase,
+    private val refreshUseCase: RefreshUseCase
+) : ViewModel() {
 
     private val _uiState: MutableLiveData<UiState> = MutableLiveData()
     val uiState: LiveData<UiState> = _uiState
 
     fun getCharactersList() {
+        _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             getFeedUseCase.invoke().fold({ error ->
                 _uiState.postValue(
@@ -31,6 +35,17 @@ class CharacterListViewModel @Inject constructor(private val getFeedUseCase: Get
                 )
             })
 
+        }
+    }
+
+    fun refreshFeed() {
+        _uiState.value = UiState(isLoading = true)
+        viewModelScope.launch(Dispatchers.IO) {
+            refreshUseCase.invoke().fold({ error ->
+                _uiState.postValue(UiState(error = error))
+            }, { characters ->
+                _uiState.postValue(UiState(characters = characters))
+            })
         }
     }
 
