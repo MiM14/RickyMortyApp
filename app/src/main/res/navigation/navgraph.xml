@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/character_list">
+
+    <action android:id="@+id/toCharacterList"
+        app:destination="@id/character_list"/>
+
+    <fragment
+        android:id="@+id/character_list"
+        tools:layout="@layout/fragment_character_list"
+        android:name="com.moaimar.ricknmortyapp.features.characterslist.presentation.CharacterListFragment">
+
+        <action
+            android:id="@+id/from_list_to_detail"
+            app:destination="@id/character_detail">
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/character_detail"
+        tools:layout="@layout/fragment_character_detail"
+        android:name="com.moaimar.ricknmortyapp.features.characterslist.presentation.CharacterListFragment">
+        <argument
+            android:name="character_id"
+            android:defaultValue="1"
+            app:argType="integer"/>
+    </fragment>
+
+
+</navigation>
