@@ -5,29 +5,28 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/character_list">
 
-    <action android:id="@+id/toCharacterList"
-        app:destination="@id/character_list"/>
+    <action
+        android:id="@+id/toCharacterList"
+        app:destination="@id/character_list" />
 
     <fragment
         android:id="@+id/character_list"
-        tools:layout="@layout/fragment_character_list"
-        android:name="com.moaimar.ricknmortyapp.features.characterslist.presentation.CharacterListFragment">
-
+        android:name="com.moaimar.ricknmortyapp.features.characterslist.presentation.CharacterListFragment"
+        tools:layout="@layout/fragment_character_list">
         <action
-            android:id="@+id/from_list_to_detail"
-            app:destination="@id/character_detail">
+            android:id="@+id/action_list_to_detail"
+            app:destination="@id/character_detail" />
 
-        </action>
     </fragment>
 
     <fragment
         android:id="@+id/character_detail"
-        tools:layout="@layout/fragment_character_detail"
-        android:name="com.moaimar.ricknmortyapp.features.characterslist.presentation.CharacterListFragment">
+        android:name="com.moaimar.ricknmortyapp.features.characterslist.presentation.CharacterDetailFragment"
+        tools:layout="@layout/fragment_character_detail">
         <argument
             android:name="character_id"
             android:defaultValue="1"
-            app:argType="integer"/>
+            app:argType="integer" />
     </fragment>
 
 

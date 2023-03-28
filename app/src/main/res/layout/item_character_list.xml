@@ -26,6 +26,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:id="@+id/name"
             tools:text="Rick Sanchez"
             app:layout_constraintStart_toEndOf="@id/main_image"
             app:layout_constraintTop_toTopOf="@id/main_image"

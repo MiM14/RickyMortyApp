@@ -72,4 +72,16 @@ dependencies {
     //Fragment
     implementation "androidx.fragment:fragment-ktx:1.5.6"
 
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    kapt 'com.github.bumptech.glide:compiler:4.14.2'
+
+    //Livedata
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+
+    //Skeleton
+    implementation 'com.faltenreich:skeletonlayout:4.0.0'
 }

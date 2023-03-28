@@ -5,16 +5,61 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
+import com.moaimar.ricknmortyapp.app.extensions.loadUrl
+import com.moaimar.ricknmortyapp.databinding.FragmentCharacterDetailBinding
+import com.moaimar.ricknmortyapp.features.characterslist.domain.CharacterInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CharacterDetailFragment : Fragment(){
+
+    private var binding: FragmentCharacterDetailBinding? = null
+    private val viewModel by viewModels<CharacterDetailViewModel>()
+    private val args : CharacterDetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+        binding = FragmentCharacterDetailBinding.inflate(inflater)
+        return binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpObservers()
+        viewModel.getCharacterDetail(args.characterId)
+    }
+
+    private fun setUpObservers(){
+        val characterDetailObserver=
+            Observer<CharacterDetailViewModel.UiState>(){uiState->
+                if (uiState.isLoading){
+                    //TODO
+                }else{
+                    if (uiState.error != null){
+                        //TODO
+                    }else{
+                        bind(uiState.character)
+                    }
+                }
+            }
+        viewModel.uiState.observe(viewLifecycleOwner,characterDetailObserver)
+    }
+
+    private fun bind(character : CharacterInfo?){
+        binding?.apply {
+            character?.let {
+                image.loadUrl(it.urlImage)
+                title.text = it.name
+                species.text = it.species
+                status.text= it.status
+                gender.text = it.gender
+            }
+        }
     }
 }
