@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
 import com.moaimar.ricknmortyapp.R
+import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.databinding.FragmentCharacterListBinding
 import com.moaimar.ricknmortyapp.features.characterslist.presentation.adapter.CharacterFeedAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -75,10 +76,10 @@ class CharacterListFragment() : Fragment() {
                     skeleton?.showSkeleton()
                 } else {
                     skeleton?.showOriginal()
+                    binding?.swipeRefreshLayout?.isRefreshing = false
                     if (uiState.error != null) {
-                        //TODO
+                        errorHandler(uiState.error)
                     } else {
-                        binding?.swipeRefreshLayout?.isRefreshing = false
                         characterFeedAdapter.submitList(uiState.characters)
                     }
                 }
@@ -86,5 +87,7 @@ class CharacterListFragment() : Fragment() {
 
         viewModel.uiState.observe(viewLifecycleOwner, characterListObserver)
     }
+    private fun errorHandler(error : ErrorApp){
 
+    }
 }
