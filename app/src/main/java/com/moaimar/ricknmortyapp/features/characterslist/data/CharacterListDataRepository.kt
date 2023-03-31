@@ -5,6 +5,7 @@ import com.moaimar.ricknmortyapp.app.funtional.Either
 import com.moaimar.ricknmortyapp.app.funtional.left
 import com.moaimar.ricknmortyapp.app.funtional.right
 import com.moaimar.ricknmortyapp.features.characterslist.data.local.CharacterListLocalDataRepository
+import com.moaimar.ricknmortyapp.features.characterslist.data.local.cache.CharacterCache
 import com.moaimar.ricknmortyapp.features.characterslist.data.remote.CharacterListRemoteDataRepository
 import com.moaimar.ricknmortyapp.features.characterslist.domain.AppRepository
 import com.moaimar.ricknmortyapp.features.characterslist.domain.CharacterInfo
@@ -12,19 +13,21 @@ import javax.inject.Inject
 
 class CharacterListDataRepository @Inject constructor(
     private val localDataRepository: CharacterListLocalDataRepository,
-    private val remoteDataRepository: CharacterListRemoteDataRepository
+    private val remoteDataRepository: CharacterListRemoteDataRepository,
+    private val cache: CharacterCache
 ) : AppRepository {
 
     override suspend fun getFeed(): Either<ErrorApp, List<CharacterInfo>> {
-        val localList = localDataRepository.getCharacters()
-        return if (localList.isEmpty()) {
+        return if(cache.isCacheOutDated()){
             remoteDataRepository.getCharacters().map { remoteList ->
                 localDataRepository.delete()
                 localDataRepository.save(remoteList)
+                cache.saveCacheDate()
                 remoteList
             }
-        } else {
-            localList.right()
+
+        }else {
+            localDataRepository.getCharacters().right()
         }
     }
 
@@ -34,6 +37,7 @@ class CharacterListDataRepository @Inject constructor(
 
     override suspend fun refreshFeed(): Either<ErrorApp, List<CharacterInfo>> {
         localDataRepository.delete()
+        cache.refreshCache()
         return getFeed()
     }
 }

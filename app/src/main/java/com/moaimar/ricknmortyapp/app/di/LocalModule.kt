@@ -1,6 +1,7 @@
 package com.moaimar.ricknmortyapp.app.di
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.moaimar.ricknmortyapp.app.data.local.RnMDatabase
 import dagger.Module
@@ -22,5 +23,12 @@ object LocalModule {
             RnMDatabase::class.java,
             "Rick and Morty Database"
         ).fallbackToDestructiveMigration().build()
+    }
+
+    @Provides
+    @Singleton
+    @CacheQualifier
+    fun provideCacheSharedPreferences(@ApplicationContext context: Context): SharedPreferences{
+        return  context.getSharedPreferences("cache", Context.MODE_PRIVATE)
     }
 }
