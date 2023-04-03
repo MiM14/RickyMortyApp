@@ -9,13 +9,19 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.faltenreich.skeletonlayout.Skeleton
+import com.moaimar.ricknmortyapp.app.domain.ErrorApp
+import com.moaimar.ricknmortyapp.app.error.ErrorAppHandler
 import com.moaimar.ricknmortyapp.app.extensions.loadUrl
 import com.moaimar.ricknmortyapp.databinding.FragmentCharacterDetailBinding
 import com.moaimar.ricknmortyapp.features.characterslist.domain.CharacterInfo
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class CharacterDetailFragment : Fragment(){
+
+    @Inject
+    lateinit var errorAppHandler: ErrorAppHandler
 
     private var binding: FragmentCharacterDetailBinding? = null
     private val viewModel by viewModels<CharacterDetailViewModel>()
@@ -46,6 +52,7 @@ class CharacterDetailFragment : Fragment(){
                 }else{
                     skeleton?.showOriginal()
                     if (uiState.error != null){
+                        errorHandler(uiState.error)
                     }else{
                         bind(uiState.character)
                     }
@@ -64,5 +71,9 @@ class CharacterDetailFragment : Fragment(){
                 gender.text = it.gender
             }
         }
+    }
+
+    private fun errorHandler(error : ErrorApp){
+        errorAppHandler.navigateToError(error)
     }
 }

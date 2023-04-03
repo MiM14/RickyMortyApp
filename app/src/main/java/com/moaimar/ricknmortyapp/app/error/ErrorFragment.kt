@@ -5,13 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.moaimar.ricknmortyapp.databinding.FragmentErrorHandlerBinding
+import com.moaimar.ricknmortyapp.features.characterslist.presentation.CharacterDetailFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ErrorFragment(): Fragment() {
+open class ErrorFragment(): Fragment() {
 
     private var binding: FragmentErrorHandlerBinding? = null
+    private val args : ErrorFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,6 +24,16 @@ class ErrorFragment(): Fragment() {
     ): View? {
         binding = FragmentErrorHandlerBinding.inflate(inflater)
         return binding?.root
+    }
+
+    protected fun setUpErrorView(){
+        binding?.apply {
+            errorTitle.text = args.errorTitle
+            refreshButton.setOnClickListener {
+                it.findNavController().navigate(ErrorFragmentDirections.refreshApp())
+            }
+        }
+
     }
 
 }
