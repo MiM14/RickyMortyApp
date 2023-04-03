@@ -5,6 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/view_section_toolbar" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
@@ -15,11 +28,7 @@
             android:id="@+id/fragmentCharacterList"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_character_list"/>
+            tools:listitem="@layout/item_character_list" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

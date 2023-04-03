@@ -6,13 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/view_detail_toolbar" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
         android:layout_height="@dimen/detail_card_view_size"
         app:cardCornerRadius="@dimen/radius_card"
         android:elevation="@dimen/elevation_card"
         android:layout_marginVertical="@dimen/vertical_spacing"
-        android:layout_marginHorizontal="@dimen/vertical_spacing">
+        android:layout_marginHorizontal="@dimen/vertical_spacing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -115,5 +125,5 @@
                 tools:src="@tools:sample/avatars" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </com.faltenreich.skeletonlayout.SkeletonLayout>

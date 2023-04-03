@@ -71,6 +71,7 @@ class CharacterListFragment() : Fragment() {
                     )
                 )
             }
+            toolbar.sectionToolbar.title = getString(R.string.character_title)
         }
     }
 
