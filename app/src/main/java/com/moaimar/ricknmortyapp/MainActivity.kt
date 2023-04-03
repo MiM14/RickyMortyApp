@@ -32,8 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpNavigation() {
         val navHostFragment= supportFragmentManager
-                .findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
+                .findFragmentById(R.id.fragment_container_view) as NavHostFragment
         val navController = navHostFragment.navController
-        navController.navigate(NavGraphDirections.toCharacterList())
     }
 }

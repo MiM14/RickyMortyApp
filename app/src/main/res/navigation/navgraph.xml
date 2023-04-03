@@ -6,6 +6,10 @@
     app:startDestination="@id/character_list">
 
     <action
+        android:id="@+id/toError"
+        app:destination="@id/error_fragment"/>
+
+    <action
         android:id="@+id/toCharacterList"
         app:destination="@id/character_list" />
 
@@ -29,5 +33,15 @@
             app:argType="integer" />
     </fragment>
 
+    <fragment
+        android:id="@+id/error_fragment"
+        android:name="com.moaimar.ricknmortyapp.app.error.ErrorFragment"
+        tools:layout="@layout/fragment_error_handler">
+
+        <argument
+            android:name="title"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
 
 </navigation>
