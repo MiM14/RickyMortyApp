@@ -37,14 +37,11 @@
         android:id="@+id/error_fragment"
         android:name="com.moaimar.ricknmortyapp.app.error.ErrorFragment"
         tools:layout="@layout/fragment_error_handler">
-        <action
-            android:id="@+id/refresh_app"
-            app:destination="@id/character_list"/>
 
         <argument
-            android:name="error_title"
-            android:defaultValue="@string/no_unknown_error_message"
-            app:argType="string"/>
+            android:name="title"
+            android:defaultValue=""
+            app:argType="string" />
     </fragment>
 
 </navigation>

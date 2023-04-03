@@ -9,24 +9,27 @@ import com.moaimar.ricknmortyapp.MainActivity
 import com.moaimar.ricknmortyapp.NavGraphDirections
 import com.moaimar.ricknmortyapp.R
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
+import com.moaimar.ricknmortyapp.app.extensions.navController
 import dagger.hilt.android.qualifiers.ActivityContext
 import javax.inject.Inject
 
-class ErrorAppHandler @Inject constructor(@ActivityContext private val context: Context): ErrorFragment() {
+class ErrorAppHandler @Inject constructor(@ActivityContext private val context: Context) {
 
 
     fun navigateToError(errorApp: ErrorApp) {
+        val dataErrorMessage = context.getString(R.string.data_error_message)
+        val internetErrorMessage = context.getString(R.string.no_internet_error_message)
+        val timeOutErrorMessage = context.getString(R.string.no_time_out_error_message)
+        val unknownErrorMessage = context.getString(R.string.no_unknown_error_message)
+
         when (errorApp) {
             is ErrorApp.DataLayerError -> (context as MainActivity).navController()
-                .navigate(NavGraphDirections.toError(getString(R.string.data_error_message)))
+                .navigate(NavGraphDirections.toError(dataErrorMessage))
             is ErrorApp.NoInternetError -> (context as MainActivity).navController()
-                .navigate(NavGraphDirections.toError())
+                .navigate(NavGraphDirections.toError(internetErrorMessage))
             is ErrorApp.TimeOutError -> (context as MainActivity).navController()
-                .navigate(NavGraphDirections.toError())
+                .navigate(NavGraphDirections.toError(timeOutErrorMessage))
             else -> (context as MainActivity).navController()
-                .navigate(NavGraphDirections.toError())
+                .navigate(NavGraphDirections.toError(unknownErrorMessage))
         }}
-
-    fun Activity.navController(): NavController =
-        Navigation.findNavController(this, R.id.fragment_container_view)
 }
