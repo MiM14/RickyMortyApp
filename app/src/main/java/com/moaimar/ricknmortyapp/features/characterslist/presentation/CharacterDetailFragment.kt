@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.faltenreich.skeletonlayout.Skeleton
+import com.moaimar.ricknmortyapp.R
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.app.error.ErrorAppHandler
 import com.moaimar.ricknmortyapp.app.extensions.loadUrl
@@ -18,14 +20,14 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CharacterDetailFragment : Fragment(){
+class CharacterDetailFragment : Fragment() {
 
     @Inject
     lateinit var errorAppHandler: ErrorAppHandler
 
     private var binding: FragmentCharacterDetailBinding? = null
     private val viewModel by viewModels<CharacterDetailViewModel>()
-    private val args : CharacterDetailFragmentArgs by navArgs()
+    private val args: CharacterDetailFragmentArgs by navArgs()
     private var skeleton: Skeleton? = null
 
     override fun onCreateView(
@@ -35,8 +37,21 @@ class CharacterDetailFragment : Fragment(){
     ): View? {
         binding = FragmentCharacterDetailBinding.inflate(inflater)
         skeleton = binding?.skeletonLayout
+        setUpView()
         return binding?.root
     }
+
+    private fun setUpView() {
+        binding?.apply {
+            layoutToolbar.detailToolbar.apply {
+                title = getString(R.string.character_detail_title)
+                setNavigationOnClickListener {
+                    findNavController().navigateUp()
+                }
+            }
+        }
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,36 +59,36 @@ class CharacterDetailFragment : Fragment(){
         viewModel.getCharacterDetail(args.characterId)
     }
 
-    private fun setUpObservers(){
-        val characterDetailObserver=
-            Observer<CharacterDetailViewModel.UiState>(){uiState->
-                if (uiState.isLoading){
+    private fun setUpObservers() {
+        val characterDetailObserver =
+            Observer<CharacterDetailViewModel.UiState>() { uiState ->
+                if (uiState.isLoading) {
                     skeleton?.showSkeleton()
-                }else{
+                } else {
                     skeleton?.showOriginal()
-                    if (uiState.error != null){
+                    if (uiState.error != null) {
                         errorHandler(uiState.error)
-                    }else{
+                    } else {
                         bind(uiState.character)
                     }
                 }
             }
-        viewModel.uiState.observe(viewLifecycleOwner,characterDetailObserver)
+        viewModel.uiState.observe(viewLifecycleOwner, characterDetailObserver)
     }
 
-    private fun bind(character : CharacterInfo?){
+    private fun bind(character: CharacterInfo?) {
         binding?.apply {
             character?.let {
                 image.loadUrl(it.urlImage)
                 title.text = it.name
                 species.text = it.species
-                status.text= it.status
+                status.text = it.status
                 gender.text = it.gender
             }
         }
     }
 
-    private fun errorHandler(error : ErrorApp){
+    private fun errorHandler(error: ErrorApp) {
         errorAppHandler.navigateToError(error)
     }
 }

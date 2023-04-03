@@ -11,7 +11,7 @@
 
     <action
         android:id="@+id/toCharacterList"
-        app:destination="@id/character_list" />
+        app:destination="@id/character_list"/>
 
     <fragment
         android:id="@+id/character_list"
@@ -19,7 +19,11 @@
         tools:layout="@layout/fragment_character_list">
         <action
             android:id="@+id/action_list_to_detail"
-            app:destination="@id/character_detail" />
+            app:destination="@id/character_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
 
     </fragment>
 
