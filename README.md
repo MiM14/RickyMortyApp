@@ -12,7 +12,7 @@ Additionally, the app was built using Clean Architecture principles, which prior
 
 - **Characters list** : Users can look at list of characters from the show, along with their image and name.
 
-- **View character details**: Users can tap on a character to view more information, including their name, gender, status and species.
+- **View character details**: Users can tap on a character to see more information, including their name, gender, status and species.
 
  **Here is a demo video:**
 
