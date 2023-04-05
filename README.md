@@ -10,7 +10,7 @@ Additionally, the app was built using Clean Architecture principles, which prior
 
 ## Features
 
-- **Characters list** : Users can look at list of characters from the show, along with their image and name.
+- **Characters list** : Users can look at a list of characters from the show, along with their image and name.
 
 - **View character details**: Users can tap on a character to see more information, including their name, gender, status and species.
 
