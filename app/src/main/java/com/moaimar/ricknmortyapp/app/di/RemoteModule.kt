@@ -14,7 +14,8 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RemoteModule {
-    private const val BASE_URL = "https://rickandmortyapi.com/api/"
+    const val BASE_URL = "https://rickandmortyapi.com/api/"
+    const val CHARACTER_END_POINT = "character"
 
     @Singleton
     @Provides
