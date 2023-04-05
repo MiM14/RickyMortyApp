@@ -7,11 +7,15 @@
 
     <action
         android:id="@+id/toError"
-        app:destination="@id/error_fragment"/>
+        app:destination="@id/error_fragment"
+        app:popUpTo="@id/character_list"
+        app:popUpToInclusive="true"/>
 
     <action
         android:id="@+id/toCharacterList"
-        app:destination="@id/character_list"/>
+        app:destination="@id/character_list"
+        app:popUpTo="@id/error_fragment"
+        app:popUpToInclusive="true"/>
 
     <fragment
         android:id="@+id/character_list"
