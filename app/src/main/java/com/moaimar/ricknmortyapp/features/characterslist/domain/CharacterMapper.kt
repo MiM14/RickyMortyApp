@@ -1,4 +1,4 @@
-package com.moaimar.ricknmortyapp.features.characterslist.domain
+    package com.moaimar.ricknmortyapp.features.characterslist.domain
 
 fun CharacterInfo.toFeed()=
     CharactersFeed(

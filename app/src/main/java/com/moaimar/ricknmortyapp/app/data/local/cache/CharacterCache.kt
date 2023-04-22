@@ -1,4 +1,4 @@
-package com.moaimar.ricknmortyapp.features.characterslist.data.local.cache
+package com.moaimar.ricknmortyapp.app.data.local.cache
 
 import android.content.SharedPreferences
 import com.google.gson.Gson

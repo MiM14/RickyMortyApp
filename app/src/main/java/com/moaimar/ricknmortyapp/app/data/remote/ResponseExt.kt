@@ -1,5 +1,6 @@
 package com.moaimar.ricknmortyapp.app.data.remote
 
+import android.content.res.Resources.NotFoundException
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.app.funtional.Either
 import com.moaimar.ricknmortyapp.app.funtional.left
@@ -22,7 +23,12 @@ suspend fun <T : Any> apiCall(call: suspend () -> Response<T>): Either<ErrorApp,
         }
     }
     if (!response.isSuccessful) {
+        if (response.code()==404){
+            return ErrorApp.NotFoundError.left()
+        }
         return ErrorApp.UnKnowError.left()
     }
+
+
     return response.body()!!.right()
 }

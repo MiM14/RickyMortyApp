@@ -5,4 +5,6 @@ sealed class ErrorApp {
     object NoInternetError: ErrorApp()
     object TimeOutError: ErrorApp()
     object UnKnowError: ErrorApp()
+
+    object NotFoundError: ErrorApp()
 }

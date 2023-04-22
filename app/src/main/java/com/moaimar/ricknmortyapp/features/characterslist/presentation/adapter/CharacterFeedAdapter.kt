@@ -22,7 +22,8 @@ class CharacterFeedAdapter @Inject constructor() :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterFeedViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_character_list, parent, false)
-        return CharacterFeedViewHolder(view)    }
+        return CharacterFeedViewHolder(view)
+    }
 
     override fun onBindViewHolder(holder: CharacterFeedViewHolder, position: Int) {
         holder.render(currentList[position], itemClick)
