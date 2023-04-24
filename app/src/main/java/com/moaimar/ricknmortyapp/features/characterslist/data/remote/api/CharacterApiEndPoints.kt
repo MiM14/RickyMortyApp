@@ -5,14 +5,14 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface ApiEndPoints {
+interface CharacterApiEndPoints {
 
     @GET("character")
-    suspend fun getCharacters(): Response<ApiModel>
+    suspend fun getCharacters(): Response<CharacterResponse>
 
     @GET("character/{id}")
     suspend fun getCharactersInfo(@Path("id") keyId: Int): Response<CharacterApiModel>
 
     @GET("character")
-    suspend fun searchCharactersByKeyword(@Query("name") keyWord: String): Response<ApiModel>
+    suspend fun searchCharactersByKeyword(@Query("name") keyWord: String): Response<CharacterResponse>
 }
