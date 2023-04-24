@@ -7,4 +7,6 @@ import com.moaimar.ricknmortyapp.features.characterslist.domain.CharacterInfo
 interface CharacterListRemoteDataRepository {
     suspend fun getCharacters(): Either<ErrorApp, List<CharacterInfo>>
     suspend fun getCharactersInfo(keyId:Int): Either<ErrorApp, CharacterInfo>
+
+    suspend fun getSearchedCharacters(keyWord:String): Either<ErrorApp, List<CharacterInfo>>
 }

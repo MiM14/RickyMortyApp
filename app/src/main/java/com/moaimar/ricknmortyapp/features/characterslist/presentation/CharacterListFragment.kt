@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -63,6 +64,7 @@ class CharacterListFragment() : Fragment() {
                     viewModel.refreshFeed()
                 }
 
+
             }
             characterFeedAdapter.setOnClickedItem { keyId ->
                 findNavController().navigate(
@@ -71,7 +73,28 @@ class CharacterListFragment() : Fragment() {
                     )
                 )
             }
-            toolbar.sectionToolbar.title = getString(R.string.character_title)
+            toolbar.sectionToolbar.apply {
+                title = getString(R.string.character_title)
+                val menuItem = menu.findItem(R.id.search_bar)
+                val search: SearchView = menuItem.actionView as SearchView
+                search.maxWidth = Int.MAX_VALUE
+                search.queryHint = "Search here!"
+
+                search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+                        viewModel.searchCharactersByKeyword(query ?: "")
+                        return false
+                    }
+
+                    override fun onQueryTextChange(newText: String?): Boolean {
+                        if(newText == ""){
+                            viewModel.getCharactersList()
+                        }
+                        return false
+                    }
+
+                })
+            }
         }
     }
 

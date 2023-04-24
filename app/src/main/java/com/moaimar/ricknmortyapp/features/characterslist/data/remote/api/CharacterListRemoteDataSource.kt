@@ -28,4 +28,15 @@ class CharacterListRemoteDataSource @Inject constructor(private val apiClient: A
         }
     }
 
+    override suspend fun getSearchedCharacters(keyWord: String): Either<ErrorApp, List<CharacterInfo>> {
+        return apiCall {
+            apiClient.searchCharactersByKeyword(keyWord)
+        }.map {apiModel ->
+            apiModel.result.map { character ->
+                character.toDomain()
+            }
+        }
+    }
+
+
 }

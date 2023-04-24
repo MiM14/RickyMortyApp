@@ -9,4 +9,6 @@
     <string name="no_internet_error_message">No available network was found</string>
     <string name="no_time_out_error_message">504 Gateway Timeout Error</string>
     <string name="no_unknown_error_message">Unknown internal error</string>
+    <string name="not_found_error_message">Not Found Results</string>
+    <string name="search_name">Search</string>
 </resources>
