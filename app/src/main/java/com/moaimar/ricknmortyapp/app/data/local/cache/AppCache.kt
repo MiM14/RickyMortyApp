@@ -1,11 +1,10 @@
 package com.moaimar.ricknmortyapp.app.data.local.cache
 
 import android.content.SharedPreferences
-import com.google.gson.Gson
 import com.moaimar.ricknmortyapp.app.di.CacheQualifier
 import javax.inject.Inject
 
-class CharacterCache @Inject constructor(
+class AppCache @Inject constructor(
     @CacheQualifier private val preferences: SharedPreferences
 ) {
 

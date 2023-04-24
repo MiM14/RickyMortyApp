@@ -1,6 +1,6 @@
 package com.moaimar.ricknmortyapp.features.characterslist.data
 
-import com.moaimar.ricknmortyapp.app.data.local.cache.CharacterCache
+import com.moaimar.ricknmortyapp.app.data.local.cache.AppCache
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.app.funtional.Either
 import com.moaimar.ricknmortyapp.app.funtional.right
@@ -13,7 +13,7 @@ import javax.inject.Inject
 class CharacterListDataRepository @Inject constructor(
     private val localDataRepository: CharacterListLocalDataRepository,
     private val remoteDataRepository: CharacterListRemoteDataRepository,
-    private val cache: CharacterCache
+    private val cache: AppCache
 ) : CharacterRepository {
 
     override suspend fun getFeed(): Either<ErrorApp, List<CharacterInfo>> {
@@ -41,6 +41,6 @@ class CharacterListDataRepository @Inject constructor(
     }
 
     override suspend fun getSearchedCharacters(keyWord: String): Either<ErrorApp, List<CharacterInfo>> {
-        return remoteDataRepository.getSearchedCharacters(keyWord)
+        return remoteDataRepository.searchCharactersByKeyword(keyWord)
     }
 }

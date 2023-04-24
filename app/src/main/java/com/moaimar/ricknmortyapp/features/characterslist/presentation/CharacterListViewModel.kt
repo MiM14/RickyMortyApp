@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.features.characterslist.domain.CharactersFeed
-import com.moaimar.ricknmortyapp.features.characterslist.domain.GetFeedUseCase
+import com.moaimar.ricknmortyapp.features.characterslist.domain.GetCharacterFeedUseCase
 import com.moaimar.ricknmortyapp.features.characterslist.domain.SearchCharactersByKeywordUseCase
 import com.moaimar.ricknmortyapp.features.characterslist.domain.RefreshUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharacterListViewModel @Inject constructor(
-    private val getFeedUseCase: GetFeedUseCase,
+    private val getCharacterFeedUseCase: GetCharacterFeedUseCase,
     private val refreshUseCase: RefreshUseCase,
     private val searchCharactersByKeywordUseCase: SearchCharactersByKeywordUseCase
 ) : ViewModel() {
@@ -27,7 +27,7 @@ class CharacterListViewModel @Inject constructor(
     fun getCharactersList() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
-            getFeedUseCase.invoke().fold({ error ->
+            getCharacterFeedUseCase.invoke().fold({ error ->
                 _uiState.postValue(
                     UiState(isLoading = false, error = error)
                 )

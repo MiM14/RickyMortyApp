@@ -7,7 +7,7 @@ import com.moaimar.ricknmortyapp.features.characterslist.data.remote.CharacterLi
 import com.moaimar.ricknmortyapp.features.characterslist.domain.CharacterInfo
 import javax.inject.Inject
 
-class CharacterListRemoteDataSource @Inject constructor(private val apiClient: ApiEndPoints) :
+class CharacterListRemoteDataSource @Inject constructor(private val apiClient: CharacterApiEndPoints) :
     CharacterListRemoteDataRepository {
 
     override suspend fun getCharacters(): Either<ErrorApp, List<CharacterInfo>> {
@@ -28,10 +28,10 @@ class CharacterListRemoteDataSource @Inject constructor(private val apiClient: A
         }
     }
 
-    override suspend fun getSearchedCharacters(keyWord: String): Either<ErrorApp, List<CharacterInfo>> {
+    override suspend fun searchCharactersByKeyword(keyWord: String): Either<ErrorApp, List<CharacterInfo>> {
         return apiCall {
             apiClient.searchCharactersByKeyword(keyWord)
-        }.map {apiModel ->
+        }.map { apiModel ->
             apiModel.result.map { character ->
                 character.toDomain()
             }

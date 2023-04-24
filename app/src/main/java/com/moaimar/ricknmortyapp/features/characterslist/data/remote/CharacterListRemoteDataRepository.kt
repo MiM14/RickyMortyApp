@@ -8,5 +8,5 @@ interface CharacterListRemoteDataRepository {
     suspend fun getCharacters(): Either<ErrorApp, List<CharacterInfo>>
     suspend fun getCharactersInfo(keyId:Int): Either<ErrorApp, CharacterInfo>
 
-    suspend fun getSearchedCharacters(keyWord:String): Either<ErrorApp, List<CharacterInfo>>
+    suspend fun searchCharactersByKeyword(keyWord:String): Either<ErrorApp, List<CharacterInfo>>
 }
