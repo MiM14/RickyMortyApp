@@ -7,12 +7,12 @@ import retrofit2.http.Query
 
 interface LocationsApiEndPoints {
 
-    @GET("locations")
+    @GET("location")
     suspend fun geLocations(): Response<LocationsResponse>
 
-    @GET("locations/{id}")
+    @GET("location/{id}")
     suspend fun getLocationsInfo(@Path("id") keyId: Int): Response<LocationsApiModel>
 
-    @GET("locations")
+    @GET("location")
     suspend fun searchLocationsByKeyword(@Query("name") keyWord: String): Response<LocationsResponse>
 }

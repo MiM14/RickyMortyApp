@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="@dimen/horizontal_spacing"
+    android:layout_marginVertical="@dimen/vertical_spacing">
+
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/view_detail_toolbar" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/horizontal_spacing"
+        android:layout_marginVertical="@dimen/vertical_spacing"
+        android:elevation="@dimen/elevation_card"
+        app:cardCornerRadius="@dimen/radius_card"
+        android:backgroundTint="@color/green_lucid"
+        app:layout_constraintTop_toBottomOf="@id/layout_toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/resident_title"
+                android:text="@string/locations_residents_title"
+                android:textStyle="bold"
+                android:textSize="@dimen/card_title_size"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="@id/resident_title"
+                app:layout_constraintEnd_toEndOf="@id/resident_title"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/resident_title"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/fragment_residents_list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/locations_residents_title"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/resident_title"
+                android:clipToPadding="true"
+                app:spanCount="3"
+                tools:listitem="@layout/item_locations_detail">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
