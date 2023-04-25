@@ -23,7 +23,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class CharacterListFragment() : Fragment() {
 
-
     @Inject
     lateinit var errorAppHandler: ErrorAppHandler
 
@@ -78,7 +77,7 @@ class CharacterListFragment() : Fragment() {
                 val menuItem = menu.findItem(R.id.search_bar)
                 val search: SearchView = menuItem.actionView as SearchView
                 search.maxWidth = Int.MAX_VALUE
-                search.queryHint = "Search here!"
+                search.queryHint = getString(R.string.search_hint)
 
                 search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
                     override fun onQueryTextSubmit(query: String?): Boolean {

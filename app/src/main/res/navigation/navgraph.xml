@@ -3,19 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/character_list">
+    app:startDestination="@id/locations_list">
 
     <action
-        android:id="@+id/toError"
+        android:id="@+id/fromCharacter_toError"
         app:destination="@id/error_fragment"
         app:popUpTo="@id/character_list"
-        app:popUpToInclusive="true"/>
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/fromLocations_toError"
+        app:destination="@id/error_fragment"
+        app:popUpTo="@id/locations_list"
+        app:popUpToInclusive="true" />
 
     <action
         android:id="@+id/toCharacterList"
         app:destination="@id/character_list"
         app:popUpTo="@id/error_fragment"
-        app:popUpToInclusive="true"/>
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/toLocationList"
+        app:destination="@id/locations_list"
+        app:popUpTo="@id/error_fragment"
+        app:popUpToInclusive="true" />
 
     <fragment
         android:id="@+id/character_list"
@@ -50,6 +62,30 @@
             android:name="title"
             android:defaultValue=""
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/locations_list"
+        android:name="com.moaimar.ricknmortyapp.features.locations.presentation.LocationsListFragment"
+        tools:layout="@layout/fragment_locations_list">
+        <action
+            android:id="@+id/action_location_list_to_location_detail"
+            app:destination="@id/location_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/location_detail"
+        android:name="com.moaimar.ricknmortyapp.features.locations.presentation.LocationsDetailFragment"
+        tools:layout="@layout/fragment_locations_detail">
+        <argument
+            android:name="location_id"
+            android:defaultValue="1"
+            app:argType="integer"/>
     </fragment>
 
 </navigation>
