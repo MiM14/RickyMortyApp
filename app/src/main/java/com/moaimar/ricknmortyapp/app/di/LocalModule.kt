@@ -28,7 +28,7 @@ object LocalModule {
     @Provides
     @Singleton
     @CacheQualifier
-    fun provideCacheSharedPreferences(@ApplicationContext context: Context): SharedPreferences{
-        return  context.getSharedPreferences("cache", Context.MODE_PRIVATE)
+    fun provideCacheSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
+        return context.getSharedPreferences("cache", Context.MODE_PRIVATE)
     }
 }

@@ -5,9 +5,9 @@ import com.moaimar.ricknmortyapp.app.funtional.Either
 import javax.inject.Inject
 
 class RefreshUseCase @Inject constructor(private val repository: CharacterRepository) {
-    suspend operator fun invoke(): Either<ErrorApp, List<CharactersFeed>>{
+    suspend operator fun invoke(): Either<ErrorApp, List<CharactersFeed>> {
         return repository.refreshFeed().map {
-            it.map {character ->
+            it.map { character ->
                 character.toFeed()
             }
         }

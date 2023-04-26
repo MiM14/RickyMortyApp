@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
-import com.moaimar.ricknmortyapp.features.characterslist.domain.CharactersFeed
 import com.moaimar.ricknmortyapp.features.locations.domain.GetLocationsListUseCase
 import com.moaimar.ricknmortyapp.features.locations.domain.LocationsFeed
 import com.moaimar.ricknmortyapp.features.locations.domain.RefreshLocationsListUseCase
@@ -21,17 +20,17 @@ class LocationsListViewModel @Inject constructor(
     private val refreshLocationsListUseCase: RefreshLocationsListUseCase,
     private val searchLocationsByKeywordUseCase: SearchLocationsByKeywordUseCase
 ) : ViewModel() {
-    private val _uiState : MutableLiveData<UiState> = MutableLiveData()
-    val uiState : LiveData<UiState> = _uiState
+    private val _uiState: MutableLiveData<UiState> = MutableLiveData()
+    val uiState: LiveData<UiState> = _uiState
 
-    fun getLocations(){
+    fun getLocations() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             getLocationsListUseCase.invoke().fold({ errorApp ->
                 _uiState.postValue(
                     UiState(isLoading = false, error = errorApp)
                 )
-            },{ locationsFeed ->
+            }, { locationsFeed ->
                 _uiState.postValue(
                     UiState(isLoading = false, locations = locationsFeed)
                 )
@@ -39,14 +38,14 @@ class LocationsListViewModel @Inject constructor(
         }
     }
 
-    fun refreshFeed(){
+    fun refreshFeed() {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             refreshLocationsListUseCase.invoke().fold({ errorApp ->
                 _uiState.postValue(
                     UiState(isLoading = false, error = errorApp)
                 )
-            },{ locationsFeed ->
+            }, { locationsFeed ->
                 _uiState.postValue(
                     UiState(isLoading = false, locations = locationsFeed)
                 )
@@ -54,14 +53,14 @@ class LocationsListViewModel @Inject constructor(
         }
     }
 
-    fun searchLocationByKeyWord(keyWord: String){
+    fun searchLocationByKeyWord(keyWord: String) {
         _uiState.value = UiState(isLoading = true)
         viewModelScope.launch(Dispatchers.IO) {
             searchLocationsByKeywordUseCase.invoke(keyWord).fold({ errorApp ->
                 _uiState.postValue(
                     UiState(isLoading = false, error = errorApp)
                 )
-            },{ locationsFeed ->
+            }, { locationsFeed ->
                 _uiState.postValue(
                     UiState(isLoading = false, locations = locationsFeed)
                 )

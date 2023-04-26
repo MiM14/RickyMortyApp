@@ -15,21 +15,21 @@ class AppCache @Inject constructor(
 
     fun isCacheOutDated(cacheKey: String): Boolean {
         val timeSave = preferences.getLong(cacheKey, 1)
-        return if(timeSave.compareTo(1) == 0){
+        return if (timeSave.compareTo(1) == 0) {
             true
-        }else{
+        } else {
             val timeLimit = 1000 * 3600 * 2//horas
-            val timePassed = (System.currentTimeMillis()-timeSave)
+            val timePassed = (System.currentTimeMillis() - timeSave)
             timePassed > timeLimit
         }
     }
 
-    fun saveCacheDate(cacheKey : String) {
-        editor.putLong(cacheKey,System.currentTimeMillis())
+    fun saveCacheDate(cacheKey: String) {
+        editor.putLong(cacheKey, System.currentTimeMillis())
         editor.apply()
     }
 
-    fun refreshCache(cacheKey : String){
+    fun refreshCache(cacheKey: String) {
         editor.remove(cacheKey)
         editor.apply()
     }

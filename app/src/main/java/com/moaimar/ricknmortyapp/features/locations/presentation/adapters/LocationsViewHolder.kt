@@ -7,7 +7,7 @@ import com.moaimar.ricknmortyapp.features.locations.domain.LocationsFeed
 
 class LocationsViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
-    fun render(locations: LocationsFeed, itemClick: ((Int)-> Unit)?){
+    fun render(locations: LocationsFeed, itemClick: ((Int) -> Unit)?) {
         val binding = ItemLocationsListBinding.bind(view)
         binding.apply {
             title.text = locations.name

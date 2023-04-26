@@ -61,7 +61,7 @@ class CharacterDetailFragment : Fragment() {
 
     private fun setUpObservers() {
         val characterDetailObserver =
-            Observer<CharacterDetailViewModel.UiState>() { uiState ->
+            Observer<CharacterDetailViewModel.UiState> { uiState ->
                 if (uiState.isLoading) {
                     skeleton?.showSkeleton()
                 } else {

@@ -9,11 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/detail_card_view_size"
         android:layout_marginHorizontal="@dimen/horizontal_spacing"
+        android:backgroundTint="@color/green"
         android:elevation="@dimen/elevation_card"
         app:cardCornerRadius="@dimen/radius_card"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/green">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -36,17 +36,17 @@
                 android:id="@+id/separator"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/horizontal_spacing"
                 android:layout_marginVertical="@dimen/vertical_spacing"
                 android:background="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/error_title"
-                android:layout_marginHorizontal="@dimen/horizontal_spacing"/>
+                app:layout_constraintTop_toBottomOf="@id/error_title" />
 
             <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/error_image"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:id="@+id/error_image"
                 android:src="@drawable/ic_error_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -54,15 +54,15 @@
                 app:layout_constraintTop_toBottomOf="@id/separator" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/refresh_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/refresh_button"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginHorizontal="@dimen/horizontal_spacing"
                 android:layout_marginVertical="@dimen/vertical_spacing"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:backgroundTint="@color/button_green"
-                android:src="@drawable/ic_refresh_icon"/>
+                android:src="@drawable/ic_refresh_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
