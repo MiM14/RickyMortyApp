@@ -1,10 +1,8 @@
 package com.moaimar.ricknmortyapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.NavHostController
-import androidx.navigation.findNavController
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.moaimar.ricknmortyapp.databinding.ActivityMainBinding
@@ -20,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setUpView()
     }
 
-    private fun setUpView(){
+    private fun setUpView() {
         setupBinding()
         setUpNavigation()
     }
@@ -33,17 +31,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpNavigation() {
-        val navHostFragment= supportFragmentManager
-                .findFragmentById(R.id.fragment_container_view) as NavHostFragment
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragment_container_view) as NavHostFragment
         val navController = navHostFragment.navController
         binding?.apply {
             bottomMenu.setupWithNavController(navController)
             navController.addOnDestinationChangedListener { _, destination, _ ->
                 if (destination.id == R.id.character_list
                     || destination.id == R.id.locations_list
-                ){
+                ) {
                     bottomMenu.visibility = View.VISIBLE
-                }else{
+                } else {
                     bottomMenu.visibility = View.GONE
                 }
             }

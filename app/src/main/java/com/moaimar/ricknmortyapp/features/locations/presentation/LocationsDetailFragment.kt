@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class LocationsDetailFragment() : Fragment() {
+class LocationsDetailFragment : Fragment() {
     @Inject
     lateinit var errorAppHandler: ErrorAppHandler
 

@@ -1,10 +1,6 @@
 package com.moaimar.ricknmortyapp.app.error
 
-import android.app.Activity
 import android.content.Context
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import com.moaimar.ricknmortyapp.MainActivity
 import com.moaimar.ricknmortyapp.NavGraphDirections
 import com.moaimar.ricknmortyapp.R
@@ -26,13 +22,18 @@ class ErrorAppHandler @Inject constructor(@ActivityContext private val context: 
         when (errorApp) {
             is ErrorApp.DataLayerError -> (context as MainActivity).navController()
                 .navigate(NavGraphDirections.fromCharacterToError(dataErrorMessage))
+
             is ErrorApp.NoInternetError -> (context as MainActivity).navController()
                 .navigate(NavGraphDirections.fromCharacterToError(internetErrorMessage))
+
             is ErrorApp.TimeOutError -> (context as MainActivity).navController()
                 .navigate(NavGraphDirections.fromCharacterToError(timeOutErrorMessage))
+
             is ErrorApp.NotFoundError -> (context as MainActivity).navController()
                 .navigate(NavGraphDirections.fromCharacterToError(notFoundErrorMessage))
+
             else -> (context as MainActivity).navController()
                 .navigate(NavGraphDirections.fromCharacterToError(unknownErrorMessage))
-        }}
+        }
+    }
 }

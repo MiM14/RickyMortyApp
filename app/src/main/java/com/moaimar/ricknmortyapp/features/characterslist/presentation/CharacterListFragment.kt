@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class CharacterListFragment() : Fragment() {
+class CharacterListFragment : Fragment() {
 
     @Inject
     lateinit var errorAppHandler: ErrorAppHandler
@@ -79,14 +79,14 @@ class CharacterListFragment() : Fragment() {
                 search.maxWidth = Int.MAX_VALUE
                 search.queryHint = getString(R.string.search_hint)
 
-                search.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextSubmit(query: String?): Boolean {
                         viewModel.searchCharactersByKeyword(query ?: "")
                         return false
                     }
 
                     override fun onQueryTextChange(newText: String?): Boolean {
-                        if(newText == ""){
+                        if (newText == "") {
                             viewModel.getCharactersList()
                         }
                         return false
@@ -115,7 +115,8 @@ class CharacterListFragment() : Fragment() {
 
         viewModel.uiState.observe(viewLifecycleOwner, characterListObserver)
     }
-    private fun errorHandler(error : ErrorApp){
+
+    private fun errorHandler(error: ErrorApp) {
         errorAppHandler.navigateToError(error)
     }
 }

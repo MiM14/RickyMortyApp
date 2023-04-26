@@ -13,7 +13,7 @@ fun LocationsApiModel.toDomain() =
 
 private fun getImages(residentUrls: List<String>): List<String> {
     val images = mutableListOf<String>()
-    residentUrls.forEach {residentUrl ->
+    residentUrls.forEach { residentUrl ->
         val id = residentUrl.substringAfterLast("/")
         images.add("https://rickandmortyapi.com/api/character/avatar/$id.jpeg")
     }

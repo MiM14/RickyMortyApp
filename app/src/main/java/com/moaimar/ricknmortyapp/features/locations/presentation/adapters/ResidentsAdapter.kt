@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.ListAdapter
 import com.moaimar.ricknmortyapp.R
-import com.moaimar.ricknmortyapp.features.locations.domain.LocationsInfo
 import javax.inject.Inject
 
 class ResidentsAdapter @Inject constructor() :

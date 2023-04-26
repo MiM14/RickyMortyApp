@@ -11,9 +11,9 @@ import javax.inject.Inject
 class LocationsAdapter @Inject constructor() : ListAdapter<LocationsFeed, LocationsViewHolder>(
     AsyncDifferConfig.Builder(LocationsDiff()).build()
 ) {
-    private var itemClick: ((Int)->Unit)? = null
+    private var itemClick: ((Int) -> Unit)? = null
 
-    fun setOnClickItem(itemClick: (Int)->Unit){
+    fun setOnClickItem(itemClick: (Int) -> Unit) {
         this.itemClick = itemClick
     }
 

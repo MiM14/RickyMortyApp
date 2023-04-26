@@ -14,7 +14,7 @@ import javax.inject.Inject
 class LocationsDataRepository @Inject constructor(
     private val localDataRepository: LocationsLocalDataRepository,
     private val remoteDataRepository: LocationsRemoteDataRepository,
-    private val cache : AppCache
+    private val cache: AppCache
 ) : LocationsRepository {
 
 

@@ -7,16 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import com.moaimar.ricknmortyapp.R
 import com.moaimar.ricknmortyapp.databinding.FragmentErrorHandlerBinding
-import com.moaimar.ricknmortyapp.features.characterslist.presentation.CharacterDetailFragmentArgs
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-open class ErrorFragment(): Fragment() {
+open class ErrorFragment : Fragment() {
 
     private var binding: FragmentErrorHandlerBinding? = null
-    private val args : ErrorFragmentArgs by navArgs()
+    private val args: ErrorFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +27,7 @@ open class ErrorFragment(): Fragment() {
     }
 
 
-
-    protected fun setUpErrorView(){
+    protected fun setUpErrorView() {
         binding?.apply {
             errorTitle.text = args.title
             refreshButton.setOnClickListener {

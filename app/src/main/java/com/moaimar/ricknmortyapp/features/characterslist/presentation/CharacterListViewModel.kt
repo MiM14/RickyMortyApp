@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.features.characterslist.domain.CharactersFeed
 import com.moaimar.ricknmortyapp.features.characterslist.domain.GetCharacterFeedUseCase
-import com.moaimar.ricknmortyapp.features.characterslist.domain.SearchCharactersByKeywordUseCase
 import com.moaimar.ricknmortyapp.features.characterslist.domain.RefreshUseCase
+import com.moaimar.ricknmortyapp.features.characterslist.domain.SearchCharactersByKeywordUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
