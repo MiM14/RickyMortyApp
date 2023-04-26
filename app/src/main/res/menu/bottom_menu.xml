@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/toCharacterList"
+        android:id="@+id/character_list"
         android:title="@string/character_title"
         android:icon="@drawable/ic_icon"/>
 
     <item
-        android:id="@+id/toLocationList"
+        android:id="@+id/locations_list"
         android:title="@string/locations_title"
         android:icon="@drawable/ic_icon"/>
 

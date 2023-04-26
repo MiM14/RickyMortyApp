@@ -2,6 +2,7 @@ package com.moaimar.ricknmortyapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavHostController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -35,6 +36,18 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment= supportFragmentManager
                 .findFragmentById(R.id.fragment_container_view) as NavHostFragment
         val navController = navHostFragment.navController
-        binding?.bottomMenu?.setupWithNavController(navController)
+        binding?.apply {
+            bottomMenu.setupWithNavController(navController)
+            navController.addOnDestinationChangedListener { _, destination, _ ->
+                if (destination.id == R.id.character_list
+                    || destination.id == R.id.locations_list
+                ){
+                    bottomMenu.visibility = View.VISIBLE
+                }else{
+                    bottomMenu.visibility = View.GONE
+                }
+            }
+        }
+
     }
 }

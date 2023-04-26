@@ -4,14 +4,17 @@ import android.content.SharedPreferences
 import com.moaimar.ricknmortyapp.app.di.CacheQualifier
 import javax.inject.Inject
 
+const val LOCATIONS_CACHE_KEY = "locations_cache"
+const val CHARACTERS_CACHE_KEY = "character_cache"
+
 class AppCache @Inject constructor(
     @CacheQualifier private val preferences: SharedPreferences
 ) {
 
     private val editor = preferences.edit()
 
-    fun isCacheOutDated(): Boolean {
-        val timeSave = preferences.getLong("cache", 1)
+    fun isCacheOutDated(cacheKey: String): Boolean {
+        val timeSave = preferences.getLong(cacheKey, 1)
         return if(timeSave.compareTo(1) == 0){
             true
         }else{
@@ -21,13 +24,13 @@ class AppCache @Inject constructor(
         }
     }
 
-    fun saveCacheDate() {
-        editor.putLong("cache",System.currentTimeMillis())
+    fun saveCacheDate(cacheKey : String) {
+        editor.putLong(cacheKey,System.currentTimeMillis())
         editor.apply()
     }
 
-    fun refreshCache(){
-        editor.remove("cache")
+    fun refreshCache(cacheKey : String){
+        editor.remove(cacheKey)
         editor.apply()
     }
 }
