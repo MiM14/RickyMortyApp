@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/character_list"
-        android:title="@string/character_title"
-        android:icon="@drawable/ic_icon"/>
+        android:icon="@drawable/ic_icon"
+        android:title="@string/character_title" />
 
     <item
         android:id="@+id/locations_list"
-        android:title="@string/locations_title"
-        android:icon="@drawable/ic_icon"/>
+        android:icon="@drawable/ic_icon"
+        android:title="@string/locations_title" />
 
 </menu>

@@ -6,8 +6,8 @@
     style="@style/ImageRoundCorner"
     android:layout_width="90dp"
     android:layout_height="90dp"
-    android:layout_marginStart="@dimen/horizontal_spacing"
     android:layout_marginVertical="@dimen/vertical_spacing"
+    android:layout_marginStart="@dimen/horizontal_spacing"
     android:elevation="@dimen/elevation_card"
     app:cardCornerRadius="@dimen/radius_card"
     tools:src="@tools:sample/avatars">
