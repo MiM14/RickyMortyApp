@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.NavHostController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.moaimar.ricknmortyapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,5 +35,6 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment= supportFragmentManager
                 .findFragmentById(R.id.fragment_container_view) as NavHostFragment
         val navController = navHostFragment.navController
+        binding?.bottomMenu?.setupWithNavController(navController)
     }
 }

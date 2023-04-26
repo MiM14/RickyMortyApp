@@ -24,7 +24,6 @@
             android:ellipsize="end"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf=""
             android:textStyle="bold"
             android:textSize="@dimen/card_title_size"/>
 
