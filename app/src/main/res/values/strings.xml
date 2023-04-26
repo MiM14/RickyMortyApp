@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Rick&amp;MortyApp</string>
     <string name="character_title">Character List</string>
+    <string name="locations_title">Locations List</string>
     <string name="character_detail_title">Character Information</string>
+    <string name="location_detail_title">Location Information</string>
     <string name="species">Species: </string>
     <string name="status">Status:</string>
     <string name="gender">Gender:</string>
@@ -11,4 +13,8 @@
     <string name="no_unknown_error_message">Unknown internal error</string>
     <string name="not_found_error_message">Not Found Results</string>
     <string name="search_name">Search</string>
+    <string name="locations_residents_title">Residents</string>
+    <string name="locations_dimension">• Dimension: </string>
+    <string name="locations_type">• Type: </string>
+    <string name="search_hint">Search here!</string>
 </resources>

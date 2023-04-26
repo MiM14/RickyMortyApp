@@ -3,7 +3,7 @@ package com.moaimar.ricknmortyapp.app.di
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
-import com.moaimar.ricknmortyapp.app.data.local.RnMDatabase
+import com.moaimar.ricknmortyapp.app.data.local.db.RnMDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

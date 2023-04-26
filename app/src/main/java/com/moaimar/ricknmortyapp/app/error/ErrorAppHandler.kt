@@ -25,14 +25,14 @@ class ErrorAppHandler @Inject constructor(@ActivityContext private val context: 
 
         when (errorApp) {
             is ErrorApp.DataLayerError -> (context as MainActivity).navController()
-                .navigate(NavGraphDirections.toError(dataErrorMessage))
+                .navigate(NavGraphDirections.fromCharacterToError(dataErrorMessage))
             is ErrorApp.NoInternetError -> (context as MainActivity).navController()
-                .navigate(NavGraphDirections.toError(internetErrorMessage))
+                .navigate(NavGraphDirections.fromCharacterToError(internetErrorMessage))
             is ErrorApp.TimeOutError -> (context as MainActivity).navController()
-                .navigate(NavGraphDirections.toError(timeOutErrorMessage))
+                .navigate(NavGraphDirections.fromCharacterToError(timeOutErrorMessage))
             is ErrorApp.NotFoundError -> (context as MainActivity).navController()
-                .navigate(NavGraphDirections.toError(notFoundErrorMessage))
+                .navigate(NavGraphDirections.fromCharacterToError(notFoundErrorMessage))
             else -> (context as MainActivity).navController()
-                .navigate(NavGraphDirections.toError(unknownErrorMessage))
+                .navigate(NavGraphDirections.fromCharacterToError(unknownErrorMessage))
         }}
 }

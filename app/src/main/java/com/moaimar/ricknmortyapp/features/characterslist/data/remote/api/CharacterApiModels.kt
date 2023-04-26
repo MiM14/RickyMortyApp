@@ -2,7 +2,7 @@ package com.moaimar.ricknmortyapp.features.characterslist.data.remote.api
 
 import com.google.gson.annotations.SerializedName
 
-data class ApiModel(@SerializedName("results") val result: List<CharacterApiModel>)
+data class CharacterResponse(@SerializedName("results") val result: List<CharacterApiModel>)
 data class CharacterApiModel(
     @SerializedName("id") val id: Int,
     @SerializedName("name") val name: String,
