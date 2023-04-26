@@ -1,6 +1,7 @@
 package com.moaimar.ricknmortyapp.features.locations.data
 
 import com.moaimar.ricknmortyapp.app.data.local.cache.AppCache
+import com.moaimar.ricknmortyapp.app.data.local.cache.LOCATIONS_CACHE_KEY
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.app.funtional.Either
 import com.moaimar.ricknmortyapp.app.funtional.right
@@ -15,12 +16,14 @@ class LocationsDataRepository @Inject constructor(
     private val remoteDataRepository: LocationsRemoteDataRepository,
     private val cache : AppCache
 ) : LocationsRepository {
+
+
     override suspend fun getLocationsList(): Either<ErrorApp, List<LocationsInfo>> {
-        return if (cache.isCacheOutDated()) {
+        return if (cache.isCacheOutDated(LOCATIONS_CACHE_KEY)) {
             remoteDataRepository.getLocations().map { remoteList ->
                 localDataRepository.delete()
                 localDataRepository.save(remoteList)
-                cache.saveCacheDate()
+                cache.saveCacheDate(LOCATIONS_CACHE_KEY)
                 remoteList
             }
 
@@ -35,7 +38,7 @@ class LocationsDataRepository @Inject constructor(
 
     override suspend fun refreshLocationsList(): Either<ErrorApp, List<LocationsInfo>> {
         localDataRepository.delete()
-        cache.refreshCache()
+        cache.refreshCache(LOCATIONS_CACHE_KEY)
         return getLocationsList()
     }
 
