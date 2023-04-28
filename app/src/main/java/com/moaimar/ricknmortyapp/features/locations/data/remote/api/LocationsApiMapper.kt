@@ -1,6 +1,7 @@
 package com.moaimar.ricknmortyapp.features.locations.data.remote.api
 
 import com.moaimar.ricknmortyapp.features.locations.domain.LocationsInfo
+import com.moaimar.ricknmortyapp.features.locations.domain.Resident
 
 fun LocationsApiModel.toDomain() =
     LocationsInfo(
@@ -8,15 +9,11 @@ fun LocationsApiModel.toDomain() =
         this.name,
         this.type,
         this.dimension,
-        getImages(this.residents)
+        getResidents(this.residents)
     )
 
-private fun getImages(residentUrls: List<String>): List<String> {
-    val images = mutableListOf<String>()
-    residentUrls.forEach { residentUrl ->
+private fun getResidents(residentUrls: List<String>): List<Resident> =
+    residentUrls.map { residentUrl ->
         val id = residentUrl.substringAfterLast("/")
-        images.add("https://rickandmortyapi.com/api/character/avatar/$id.jpeg")
+        Resident(id.toInt(), "https://rickandmortyapi.com/api/character/avatar/$id.jpeg")
     }
-    return images
-
-}

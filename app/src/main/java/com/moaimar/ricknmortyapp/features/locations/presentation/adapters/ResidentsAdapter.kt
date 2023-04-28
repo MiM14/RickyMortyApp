@@ -5,10 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.ListAdapter
 import com.moaimar.ricknmortyapp.R
+import com.moaimar.ricknmortyapp.features.locations.domain.Resident
 import javax.inject.Inject
 
 class ResidentsAdapter @Inject constructor() :
-    ListAdapter<String, ResidentsViewHolder>(
+    ListAdapter<Resident, ResidentsViewHolder>(
         AsyncDifferConfig.Builder(ResidentsDiff()).build()
     ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResidentsViewHolder {

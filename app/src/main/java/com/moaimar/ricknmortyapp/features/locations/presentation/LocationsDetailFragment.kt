@@ -82,7 +82,7 @@ class LocationsDetailFragment : Fragment() {
                         binding?.apply {
                             layoutToolbar.detailToolbar.title = uiState.location?.name
                         }
-                        residentAdapter.submitList(uiState.location?.images)
+                        residentAdapter.submitList(uiState.location?.residents)
                     }
                 }
             }

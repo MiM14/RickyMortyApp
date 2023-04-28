@@ -8,9 +8,10 @@ import com.moaimar.ricknmortyapp.features.characterslist.data.local.db.Character
 import com.moaimar.ricknmortyapp.features.characterslist.data.local.db.CharacterEntity
 import com.moaimar.ricknmortyapp.features.locations.data.local.db.LocationsDao
 import com.moaimar.ricknmortyapp.features.locations.data.local.db.LocationsEntity
+import com.moaimar.ricknmortyapp.features.locations.data.local.db.ResidentEntity
 
 @Database(
-    entities = [CharacterEntity::class, LocationsEntity::class],
+    entities = [CharacterEntity::class, LocationsEntity::class, ResidentEntity::class],
     version = BuildConfig.VERSION_CODE,
     exportSchema = false
 )

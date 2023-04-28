@@ -2,13 +2,14 @@ package com.moaimar.ricknmortyapp.app.data.local.db
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
+import com.moaimar.ricknmortyapp.features.locations.domain.Resident
 
 class ListOfStringsConverter {
 
     @TypeConverter
-    fun listToJson(images: List<String>): String = Gson().toJson(images)
+    fun listToJson(residents : List<Resident>): String = Gson().toJson(residents)
 
     @TypeConverter
-    fun jsonToList(images: String): List<String> =
-        Gson().fromJson(images, Array<String>::class.java).toList()
+    fun jsonToList(residents: String): List<Resident> =
+        Gson().fromJson(residents, Array<Resident>::class.java).toList()
 }
