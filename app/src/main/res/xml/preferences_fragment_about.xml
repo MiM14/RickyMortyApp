@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:key="dev_category"
+        app:title="@string/dev_category_title">
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="dev_auth"
+            app:summary="@string/dev_author_summary"
+            app:title="@string/dev_author_title">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.linkedin.com/in/moaimar-ismael/" />
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:key="res_category"
+        app:summary="@string/res_category_summary"
+        app:title="@string/res_category_title">
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="res_tv_show"
+            app:summary="@string/res_tv_show_summary"
+            app:title="@string/res_tv_show_title">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://www.adultswim.com/videos/rick-and-morty" />
+        </Preference>
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="res_icons"
+            app:summary="@string/res_icons_summary"
+            app:title="@string/res_icons_title">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://icons8.com" />
+        </Preference>
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="res_api"
+            app:summary="@string/res_api_summary"
+            app:title="@string/res_api_title">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://rickandmortyapi.com" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:key="app_category"
+        app:title="@string/app_name">
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="app_web"
+            app:summary="@string/app_web_summary"
+            app:title="@string/app_web_title">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/MiM14/RickyMortyApp" />
+        </Preference>
+
+        <Preference
+            app:iconSpaceReserved="false"
+            app:key="app_version"
+            app:title="@string/app_version_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -9,4 +9,9 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/about"
+        android:title="@string/about_title"
+        app:showAsAction="never" />
+
 </menu>
