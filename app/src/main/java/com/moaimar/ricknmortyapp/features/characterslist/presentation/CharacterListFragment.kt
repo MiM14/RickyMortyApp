@@ -78,6 +78,7 @@ class CharacterListFragment : Fragment() {
                 val search: SearchView = menuItem.actionView as SearchView
                 search.maxWidth = Int.MAX_VALUE
                 search.queryHint = getString(R.string.search_hint)
+                search.setQuery("", false)
 
                 search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextSubmit(query: String?): Boolean {
