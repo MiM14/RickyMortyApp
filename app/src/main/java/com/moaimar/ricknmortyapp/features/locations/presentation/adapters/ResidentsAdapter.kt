@@ -12,6 +12,12 @@ class ResidentsAdapter @Inject constructor() :
     ListAdapter<Resident, ResidentsViewHolder>(
         AsyncDifferConfig.Builder(ResidentsDiff()).build()
     ) {
+
+    private var itemClick: ((Int) -> Unit)? = null
+
+    fun setOnClickItem(itemClick: (Int) -> Unit) {
+        this.itemClick = itemClick
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResidentsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_locations_detail, parent, false)
@@ -19,7 +25,7 @@ class ResidentsAdapter @Inject constructor() :
     }
 
     override fun onBindViewHolder(holder: ResidentsViewHolder, position: Int) {
-        holder.render(currentList[position])
+        holder.render(currentList[position], itemClick)
     }
 
     override fun getItemCount(): Int = currentList.size

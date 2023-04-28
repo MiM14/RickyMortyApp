@@ -82,6 +82,15 @@
         android:id="@+id/location_detail"
         android:name="com.moaimar.ricknmortyapp.features.locations.presentation.LocationsDetailFragment"
         tools:layout="@layout/fragment_locations_detail">
+
+        <action
+            android:id="@+id/action_location_detail_to_character_detail"
+            app:destination="@id/character_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
         <argument
             android:name="location_id"
             android:defaultValue="1"

@@ -9,9 +9,7 @@ fun LocationsEntity.toDomain() =
         this.name,
         this.type,
         this.dimension,
-        this.residents.map{
-            it.toDomain()
-        }
+        this.residents
     )
 
 fun LocationsInfo.toEntity() =
@@ -20,19 +18,5 @@ fun LocationsInfo.toEntity() =
         this.name,
         this.type,
         this.dimension,
-        this.residents.map {
-            it.toEntity()
-        }
-    )
-
-fun ResidentEntity.toDomain() =
-    Resident(
-        this.id,
-        this.image
-    )
-
-fun Resident.toEntity() =
-    ResidentEntity(
-        this.id,
-        this.image
+        this.residents
     )
