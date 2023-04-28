@@ -1,6 +1,7 @@
 package com.moaimar.ricknmortyapp.features.locations.data.local.db
 
 import com.moaimar.ricknmortyapp.features.locations.domain.LocationsInfo
+import com.moaimar.ricknmortyapp.features.locations.domain.Resident
 
 fun LocationsEntity.toDomain() =
     LocationsInfo(
@@ -8,7 +9,7 @@ fun LocationsEntity.toDomain() =
         this.name,
         this.type,
         this.dimension,
-        this.images
+        this.residents
     )
 
 fun LocationsInfo.toEntity() =
@@ -17,5 +18,5 @@ fun LocationsInfo.toEntity() =
         this.name,
         this.type,
         this.dimension,
-        this.images
+        this.residents
     )

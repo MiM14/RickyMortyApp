@@ -1,8 +1,10 @@
 package com.moaimar.ricknmortyapp.features.locations.data.local.db
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.moaimar.ricknmortyapp.features.locations.domain.Resident
 
 const val LOCATIONS_TABLE_NAME = "locations"
 
@@ -12,5 +14,6 @@ data class LocationsEntity(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "type") val type: String,
     @ColumnInfo(name = "dimension") val dimension: String,
-    val images: List<String>
+    val residents: List<Resident> = emptyList()
 )
+

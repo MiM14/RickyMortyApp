@@ -14,7 +14,7 @@ import com.moaimar.ricknmortyapp.features.locations.data.local.db.LocationsEntit
     version = BuildConfig.VERSION_CODE,
     exportSchema = false
 )
-@TypeConverters(ListOfStringsConverter::class)
+@TypeConverters(ResidentsConverter::class)
 abstract class RnMDatabase : RoomDatabase() {
     abstract fun characterDao(): CharacterDao
     abstract fun locationsDao(): LocationsDao

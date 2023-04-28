@@ -5,7 +5,7 @@ data class LocationsInfo(
     val name: String,
     val type: String,
     val dimension: String,
-    val images: List<String>
+    val residents: List<Resident>
 )
 
 data class LocationsFeed(
@@ -14,3 +14,5 @@ data class LocationsFeed(
     val type: String,
     val dimension: String
 )
+
+data class Resident(val id: Int, val image:String)
