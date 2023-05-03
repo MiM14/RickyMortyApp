@@ -6,11 +6,13 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="black_lucid">#D9000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="white_snake">#D9FFFFFF</color>
+    <color name="white_lucid">#D9FFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="green">#A7CB54</color>
     <color name="green_lucid">#DA82CB54</color>
+    <color name="darker_green">#288259</color>
     <color name="button_green">#5CAD4A</color>
     <color name="variant_dark">#990D0099</color>
     <color name="variant_light">#BF05A2F6</color>

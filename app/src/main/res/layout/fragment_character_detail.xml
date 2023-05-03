@@ -73,8 +73,7 @@
                     style="@style/BodyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/image"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/label_species"
                     android:layout_marginStart="@dimen/horizontal_spacing"
                     app:layout_constraintTop_toBottomOf="@id/label_species"
                     tools:text="Human" />
@@ -107,8 +106,8 @@
                     style="@style/BodyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/image"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="@dimen/horizontal_spacing"
+                    app:layout_constraintStart_toStartOf="@id/label_status"
                     app:layout_constraintTop_toBottomOf="@id/label_status"
                     tools:text="Alive" />
 
@@ -140,8 +139,8 @@
                     style="@style/BodyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/image"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="@dimen/horizontal_spacing"
+                    app:layout_constraintStart_toStartOf="@id/label_gender"
                     app:layout_constraintTop_toBottomOf="@id/label_gender"
                     tools:text="Male"
                     />

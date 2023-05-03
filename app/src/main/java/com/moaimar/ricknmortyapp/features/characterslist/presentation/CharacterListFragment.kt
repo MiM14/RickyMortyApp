@@ -61,10 +61,6 @@ class CharacterListFragment : Fragment() {
                     requireContext(), LinearLayoutManager.VERTICAL, false
                 )
                 skeleton = applySkeleton(R.layout.item_character_list, 4)
-                swipeRefreshLayout.setOnRefreshListener {
-                    viewModel.refreshFeed()
-                }
-
 
             }
             characterFeedAdapter.setOnClickedItem { keyId ->
@@ -76,7 +72,10 @@ class CharacterListFragment : Fragment() {
             }
             toolbar.sectionToolbar.apply {
                 title = getString(R.string.character_title)
-
+                swipeRefreshLayout.setOnRefreshListener {
+                    viewModel.refreshFeed()
+                    title = getString(R.string.character_title)
+                }
                 menu.findItem(R.id.about).setOnMenuItemClickListener {
                     findNavController().navigate(
                         NavGraphDirections.toAbout()
@@ -106,6 +105,13 @@ class CharacterListFragment : Fragment() {
                     }
 
                 })
+                characterFeedAdapter.setOnClickedItem { keyId ->
+                    findNavController().navigate(
+                        CharacterListFragmentDirections.actionListToDetail(
+                            keyId
+                        )
+                    )
+                }
             }
         }
     }
