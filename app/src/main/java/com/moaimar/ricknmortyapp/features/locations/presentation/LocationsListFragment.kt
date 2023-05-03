@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
+import com.moaimar.ricknmortyapp.NavGraphDirections
 import com.moaimar.ricknmortyapp.R
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.app.error.ErrorAppHandler
@@ -74,14 +75,30 @@ class LocationsListFragment : Fragment() {
 
                 toolbar.sectionToolbar.apply {
                     title = getString(R.string.locations_title)
+
+                    menu.findItem(R.id.about).setOnMenuItemClickListener {
+                        findNavController().navigate(
+                            NavGraphDirections.toAbout()
+                        )
+                        false
+                    }
+
                     val menuItem = menu.findItem(R.id.search_bar)
                     val search = menuItem.actionView as SearchView
                     search.maxWidth = Int.MAX_VALUE
                     search.queryHint = getString(R.string.search_hint)
 
+                    menu.findItem(R.id.search_bar).setOnMenuItemClickListener {
+
+                        false
+                    }
+
                     search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                         override fun onQueryTextSubmit(query: String?): Boolean {
                             viewModel.searchLocationByKeyWord(query ?: "")
+                            toolbar.sectionToolbar.title = getString(R.string.search_title)+": \u0022$query\u0022"
+                            search.onActionViewCollapsed()
+                            search.setQuery("", true)
                             return false
                         }
 
@@ -91,7 +108,6 @@ class LocationsListFragment : Fragment() {
                             }
                             return false
                         }
-
                     })
                 }
             }

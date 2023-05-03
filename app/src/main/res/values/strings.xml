@@ -5,8 +5,8 @@
     <string name="character_detail_title">Character Information</string>
     <string name="location_detail_title">Location Information</string>
     <string name="species">Species: </string>
-    <string name="status">Status:</string>
-    <string name="gender">Gender:</string>
+    <string name="status">Status: </string>
+    <string name="gender">Gender: </string>
     <string name="data_error_message">Integrity API is not available</string>
     <string name="no_internet_error_message">No available network was found</string>
     <string name="no_time_out_error_message">504 Gateway Timeout Error</string>
@@ -17,4 +17,20 @@
     <string name="locations_dimension">• Dimension: </string>
     <string name="locations_type">• Type: </string>
     <string name="search_hint">Search here!</string>
+    <string name="search_title">Search</string>
+    <string name="about_title">About</string>
+    <string name="dev_category_title">Development</string>
+    <string name="dev_author_title">Author</string>
+    <string name="dev_author_summary">Check my profile, I\u0027m the application developer! </string>
+    <string name="res_category_title">External Resources</string>
+    <string name="res_category_summary">External Resources used on the application</string>
+    <string name="res_tv_show_title">Rick and Morty TV Show</string>
+    <string name="res_tv_show_summary">Characters, Locations and Screenshots take from the TV show</string>
+    <string name="res_icons_title">Icons8.com</string>
+    <string name="res_icons_summary">Icons</string>
+    <string name="res_api_title">Rick and Morty Api</string>
+    <string name="res_api_summary">https://rickandmortyapi.com</string>
+    <string name="app_web_title">Link to Github</string>
+    <string name="app_web_summary">https://github.com/MiM14/RickyMortyApp</string>
+    <string name="app_version_title">Version</string>
 </resources>

@@ -8,10 +8,12 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
+import com.moaimar.ricknmortyapp.NavGraphDirections
 import com.moaimar.ricknmortyapp.R
 import com.moaimar.ricknmortyapp.app.domain.ErrorApp
 import com.moaimar.ricknmortyapp.app.error.ErrorAppHandler
@@ -74,6 +76,14 @@ class CharacterListFragment : Fragment() {
             }
             toolbar.sectionToolbar.apply {
                 title = getString(R.string.character_title)
+
+                menu.findItem(R.id.about).setOnMenuItemClickListener {
+                    findNavController().navigate(
+                        NavGraphDirections.toAbout()
+                    )
+                    true
+                }
+
                 val menuItem = menu.findItem(R.id.search_bar)
                 val search: SearchView = menuItem.actionView as SearchView
                 search.maxWidth = Int.MAX_VALUE
@@ -82,6 +92,9 @@ class CharacterListFragment : Fragment() {
                 search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextSubmit(query: String?): Boolean {
                         viewModel.searchCharactersByKeyword(query ?: "")
+                        toolbar.sectionToolbar.title = getString(R.string.search_title)+": \u0022$query\u0022"
+                        search.onActionViewCollapsed()
+                        search.setQuery("", true)
                         return false
                     }
 

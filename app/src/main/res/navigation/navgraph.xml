@@ -12,6 +12,10 @@
         app:popUpToInclusive="true" />
 
     <action
+        android:id="@+id/toAbout"
+        app:destination="@id/about"/>
+
+    <action
         android:id="@+id/fromLocations_toError"
         app:destination="@id/error_fragment"
         app:popUpTo="@id/locations_list"
@@ -96,5 +100,11 @@
             android:defaultValue="1"
             app:argType="integer" />
     </fragment>
+
+    <fragment
+        android:id="@+id/about"
+        android:name="com.moaimar.ricknmortyapp.features.about.presentation.AboutFragment"
+        tools:layout="@layout/fragment_about"
+        />
 
 </navigation>

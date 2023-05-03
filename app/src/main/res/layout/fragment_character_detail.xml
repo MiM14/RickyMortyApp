@@ -23,11 +23,12 @@
             app:cardCornerRadius="@dimen/radius_card"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_toolbar">
+            app:layout_constraintTop_toBottomOf="@id/layout_toolbar"
+            android:backgroundTint="?colorSecondaryVariant">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/title"
@@ -48,9 +49,9 @@
                 <View
                     android:id="@+id/separator"
                     android:layout_width="0dp"
-                    android:layout_height="1dp"
+                    android:layout_height="2dp"
                     android:layout_marginVertical="@dimen/vertical_spacing"
-                    android:background="@color/black"
+                    android:background="?colorPrimary"
                     app:layout_constraintEnd_toEndOf="@id/title"
                     app:layout_constraintStart_toStartOf="@id/title"
                     app:layout_constraintTop_toBottomOf="@id/title" />
@@ -60,20 +61,34 @@
                     style="@style/BodyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:layout_marginHorizontal="@dimen/horizontal_spacing"
                     android:layout_marginVertical="@dimen/vertical_spacing"
                     android:text="@string/species"
                     app:layout_constraintStart_toEndOf="@id/image"
-                    app:layout_constraintTop_toTopOf="@id/image" />
+                    app:layout_constraintTop_toBottomOf="@id/separator" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/species"
                     style="@style/BodyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/label_species"
-                    app:layout_constraintTop_toTopOf="@id/label_species"
+                    app:layout_constraintStart_toEndOf="@id/image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="@dimen/horizontal_spacing"
+                    app:layout_constraintTop_toBottomOf="@id/label_species"
                     tools:text="Human" />
+
+                <View
+                    android:id="@+id/species_separator"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/vertical_spacing"
+                    android:background="?colorPrimary"
+                    android:layout_marginHorizontal="@dimen/horizontal_spacing"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/image"
+                    app:layout_constraintTop_toBottomOf="@id/species" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/label_status"
@@ -83,37 +98,53 @@
                     android:layout_marginHorizontal="@dimen/horizontal_spacing"
                     android:layout_marginVertical="@dimen/vertical_spacing"
                     android:text="@string/status"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@id/image"
-                    app:layout_constraintTop_toBottomOf="@id/label_species" />
+                    app:layout_constraintTop_toBottomOf="@id/species" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/status"
                     style="@style/BodyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/label_status"
-                    app:layout_constraintTop_toTopOf="@id/label_status"
+                    app:layout_constraintStart_toEndOf="@id/image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_status"
                     tools:text="Alive" />
+
+                <View
+                    android:id="@+id/status_separator"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="@dimen/vertical_spacing"
+                    android:layout_marginHorizontal="@dimen/horizontal_spacing"
+                    android:background="?colorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/image"
+                    app:layout_constraintTop_toBottomOf="@id/status" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/label_gender"
                     style="@style/BodyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
                     android:layout_marginHorizontal="@dimen/horizontal_spacing"
                     android:layout_marginVertical="@dimen/vertical_spacing"
                     android:text="@string/gender"
                     app:layout_constraintStart_toEndOf="@id/image"
-                    app:layout_constraintTop_toBottomOf="@id/label_status" />
+                    app:layout_constraintTop_toBottomOf="@id/status" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/gender"
                     style="@style/BodyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/label_gender"
-                    app:layout_constraintTop_toTopOf="@id/label_gender"
-                    tools:text="Male" />
+                    app:layout_constraintStart_toEndOf="@id/image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_gender"
+                    tools:text="Male"
+                    />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/image"
