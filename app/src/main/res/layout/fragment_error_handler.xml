@@ -27,6 +27,7 @@
                 android:textAlignment="center"
                 android:textSize="@dimen/card_title_size"
                 android:textStyle="bold"
+                android:textColor="?colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -38,7 +39,7 @@
                 android:layout_height="1dp"
                 android:layout_marginHorizontal="@dimen/horizontal_spacing"
                 android:layout_marginVertical="@dimen/vertical_spacing"
-                android:background="@color/black"
+                android:background="?colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/error_title" />

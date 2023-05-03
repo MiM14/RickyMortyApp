@@ -13,7 +13,12 @@
 
     <action
         android:id="@+id/toAbout"
-        app:destination="@id/about"/>
+        app:destination="@id/about"
+        app:enterAnim="@anim/fade_in"
+        app:exitAnim="@anim/fade_out"
+        app:popEnterAnim="@anim/fade_in"
+        app:popExitAnim="@anim/fade_out"
+        />
 
     <action
         android:id="@+id/fromLocations_toError"

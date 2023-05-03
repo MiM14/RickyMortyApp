@@ -61,10 +61,6 @@ class LocationsListFragment : Fragment() {
 
                 skeleton = applySkeleton(R.layout.item_locations_list, 8)
 
-                swipeRefreshLayout.setOnRefreshListener {
-                    viewModel.refreshFeed()
-                }
-
                 locationsFeedAdapter.setOnClickItem { keyId ->
                     findNavController().navigate(
                         LocationsListFragmentDirections.actionLocationListToLocationDetail(
@@ -75,6 +71,11 @@ class LocationsListFragment : Fragment() {
 
                 toolbar.sectionToolbar.apply {
                     title = getString(R.string.locations_title)
+
+                    swipeRefreshLayout.setOnRefreshListener {
+                        viewModel.refreshFeed()
+                        title = getString(R.string.locations_title)
+                    }
 
                     menu.findItem(R.id.about).setOnMenuItemClickListener {
                         findNavController().navigate(
