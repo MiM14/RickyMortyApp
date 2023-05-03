@@ -14,4 +14,7 @@
     <color name="green_lucid">#DA82CB54</color>
     <color name="darker_green">#288259</color>
     <color name="button_green">#5CAD4A</color>
+    <color name="variant_dark">#990D0099</color>
+    <color name="variant_light">#BF05A2F6</color>
+
 </resources>
