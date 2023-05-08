@@ -12,11 +12,20 @@ Additionally, the app was built using Clean Architecture principles, which prior
 
 - **Characters list** : Users can look at a list of characters from the show, along with their image and name.
 
+- **Search characters**: users can search for characters by name
+
 - **View character details**: Users can tap on a character to see more information, including their name, gender, status and species.
+
+- **Locations list** : users can view a list of locations from the show, along with their name, type, and dimension.
+
+- **Search locations**: users can search for locations by name
+
+- **View location details**: users can tap on a location to view a list of characters associated with that location.
 
  **Here is a demo video:**
 
-[device-2023-04-04-143312.webm](https://user-images.githubusercontent.com/85709107/229792676-92652130-9d5f-4422-9311-295b18bbba1e.webm)
+[demo app.webm](https://user-images.githubusercontent.com/85709107/236877856-c9930db2-0a42-4625-9c21-96e0b5163329.webm)
+
 
 ## Credits
 This app was developed by me, [Ismael Martín](https://www.linkedin.com/in/moaimar-ismael/) and is based on the [Rick and Morty API](https://rickandmortyapi.com/).
