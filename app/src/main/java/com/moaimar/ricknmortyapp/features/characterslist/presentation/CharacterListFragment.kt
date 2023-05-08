@@ -72,6 +72,7 @@ class CharacterListFragment : Fragment() {
             }
             toolbar.sectionToolbar.apply {
                 title = getString(R.string.character_title)
+
                 swipeRefreshLayout.setOnRefreshListener {
                     viewModel.refreshFeed()
                     title = getString(R.string.character_title)

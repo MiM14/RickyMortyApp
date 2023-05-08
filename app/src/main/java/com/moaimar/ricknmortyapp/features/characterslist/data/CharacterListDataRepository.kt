@@ -25,7 +25,6 @@ class CharacterListDataRepository @Inject constructor(
                 cache.saveCacheDate(CHARACTERS_CACHE_KEY)
                 remoteList
             }
-
         } else {
             localDataRepository.getCharacters().right()
         }

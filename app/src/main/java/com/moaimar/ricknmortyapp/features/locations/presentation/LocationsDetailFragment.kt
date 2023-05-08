@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.faltenreich.skeletonlayout.Skeleton
 import com.faltenreich.skeletonlayout.applySkeleton
 import com.moaimar.ricknmortyapp.R
@@ -59,9 +60,15 @@ class LocationsDetailFragment : Fragment() {
             }
             fragmentResidentsList.apply {
                 adapter = residentAdapter
-                layoutManager = GridLayoutManager(
-                    requireContext(), 3
-                )
+                layoutManager = object :
+                    GridLayoutManager(requireContext(), 3, GridLayoutManager.VERTICAL, false) {
+                    override fun checkLayoutParams(lp: RecyclerView.LayoutParams): Boolean {
+                        lp.width = width / spanCount
+                        return true
+                    }
+                }
+
+
 
                 skeleton = applySkeleton(R.layout.item_locations_detail, 3)
                 residentAdapter.setOnClickItem { keyId ->

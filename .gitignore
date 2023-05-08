@@ -31,3 +31,11 @@ google-services.json
 
 # Android Profiling
 *.hprof
+/app/release/
+
+# Keystore files
+*.jks
+*.keystore
+/keystore/keystore.properties
+/keystore/private_key.pepk
+/keystore/keystorepath.jks
